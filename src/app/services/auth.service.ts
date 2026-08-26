@@ -20,6 +20,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
+    console.log('Intentando iniciar sesión con:', username, password);
     let authRequest: AuthRequest = { username, password };
     return this.http.post<AuthResponse>(this.authUrl, authRequest).pipe(
       tap((response: AuthResponse | undefined) => {

@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ADMIN } from './constants/Roles';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
         path: 'usuarios',
         component: UsuariosComponent,
         canActivate: [AuthGuard],
+        data: { roles: [ADMIN] }
       },
     ],
   },

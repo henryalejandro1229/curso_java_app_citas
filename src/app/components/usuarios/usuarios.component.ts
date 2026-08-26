@@ -112,4 +112,15 @@ export class UsuariosComponent implements OnInit {
       }
     });
   }
+
+  getRoleName(role: string): string {
+    switch (role) {
+      case 'ROLE_ADMIN':
+        return 'Administrador';
+      case 'ROLE_USER':
+        return 'Usuario';
+      default:
+        return role;
+    }
+  }
 }

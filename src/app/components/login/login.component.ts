@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { showNotifySuccess } from '../../shared/functions/Utilities';
 
 @Component({
   selector: 'app-login',
@@ -23,9 +24,11 @@ export class LoginComponent {
   }
 
   onLogin(): void {
-    console.log('Intentando iniciar sesión con:', this.username, this.password);
     this.authService.login(this.username, this.password).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
+      next: async () => {
+        this.router.navigate(['/dashboard']);
+        await showNotifySuccess('Inicio de sesión exitoso');
+      },
       error: () => { this.error = 'Credenciales inválidas'; }
     });
   }

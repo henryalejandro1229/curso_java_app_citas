@@ -27,7 +27,7 @@
           <th mat-header-cell *matHeaderCellDef>Roles</th>
           <td mat-cell *matCellDef="let user">
             <mat-chip-set>
-              <mat-chip *ngFor="let role of user.roles" color="primary" selected>{{ role }}</mat-chip>
+              <mat-chip *ngFor="let role of user.roles" color="primary" selected>{{ getRoleName(role) }}</mat-chip>
             </mat-chip-set>
           </td>
         </ng-container>
